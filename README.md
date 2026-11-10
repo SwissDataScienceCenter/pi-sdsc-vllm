@@ -7,13 +7,13 @@ It registers a provider, supports `/login` via Authentik OIDC device flow, and d
 ## Install from git
 
 ```bash
-pi install git:github.com/rokroskar/pi-sdsc-vllm
+pi install git:github.com/SwissDataScienceCenter/pi-sdsc-vllm
 ```
 
 For project-local installation, run:
 
 ```bash
-pi install -l git:github.com/rokroskar/pi-sdsc-vllm
+pi install -l git:github.com/SwissDataScienceCenter/pi-sdsc-vllm
 ```
 
 ## Use
@@ -35,7 +35,7 @@ To inspect the full registered configuration for the current SDSC model, run:
 You can also filter by model id substring:
 
 ```text
-/sdsc-vllm-config Qwen
+/sdsc-vllm-config DeepSeek
 ```
 
 Requests are sent to the vLLM gateway with:
@@ -48,8 +48,8 @@ Authorization: Bearer <authentik-access-token>
 
 The package is preconfigured for the SDSC RunAI shared vLLM gateway:
 
-- Authentik issuer: `https://authentik-server-runai-sharedllm-ralf.inference.compute.datascience.ch/application/o/vllm/`
-- vLLM base URL: `https://vllm-gateway-runai-sharedllm-ralf.inference.compute.datascience.ch/v1`
+- Authentik issuer: `https://authentik.llm.sdsc.cscs.ch/application/o/vllm/`
+- vLLM base URL: `https://gateway.llm.sdsc.cscs.ch/v1/`
 - Provider id: `sdsc-vllm`
 
 Models are auto-discovered from the gateway's OpenAI-compatible `/models` endpoint. If unauthenticated startup discovery fails, Pi falls back to bundled defaults until `/login sdsc-vllm` succeeds, then refreshes the model list using the access token. On later Pi startup/resume, the extension also asks Pi for the stored OAuth API key, letting Pi refresh the token if needed, and then re-fetches `/models` with that token.
