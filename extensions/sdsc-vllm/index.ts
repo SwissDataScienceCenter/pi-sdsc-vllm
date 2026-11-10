@@ -69,9 +69,9 @@ type ModelConfig = {
 	compat?: Record<string, unknown>;
 };
 
-const DEFAULT_AUTHENTIK_ISSUER = "https://authentik-server-runai-sharedllm-ralf.inference.compute.datascience.ch/application/o/vllm/";
-const DEFAULT_AUTHENTIK_CLIENT_ID = "P8dW2vrNPDa8d43qd4BK49eEDYJFtvYk";
-const DEFAULT_VLLM_BASE_URL = "https://vllm-gateway-runai-sharedllm-ralf.inference.compute.datascience.ch/v1";
+const DEFAULT_AUTHENTIK_ISSUER = "https://authentik.llm.sdsc.cscs.ch/application/o/vllm/";
+const DEFAULT_AUTHENTIK_CLIENT_ID = "ee52a19756c6c7fcf7438f0ad03b222a";
+const DEFAULT_VLLM_BASE_URL = "https://gateway.llm.sdsc.cscs.ch/v1/";
 
 const DEFAULT_OPENAI_COMPAT = {
 	supportsStore: false,
